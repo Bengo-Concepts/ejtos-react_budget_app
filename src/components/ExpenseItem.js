@@ -14,8 +14,10 @@ const ExpenseItem = (props) => {
             name: name,
             cost: 10,
         };
+
+
         dispatch({
-            type: 'ADD_EXPENSE',
+              type: 'ADD_EXPENSE',
             payload: expense
         });
     }
@@ -27,5 +29,6 @@ const ExpenseItem = (props) => {
         <td><TiDelete size='1.5em' onClick={handleDeleteExpense}></TiDelete></td>
         </tr>
     );
+
 };
 export default ExpenseItem;
