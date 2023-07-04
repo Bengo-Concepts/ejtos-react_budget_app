@@ -1,8 +1,10 @@
 import React, { useContext } from 'react';
 import { AppContext } from '../context/AppContext';
 
+
 const Budget = () => {
-    const { budget, expenses, dispatch } = useContext(AppContext);
+    const { budget, expenses, dispatch, currency } = useContext(AppContext);
+    const currencySymbol = currency === '£' ? '£' : currency === '€' ? '€' : currency === '₹' ? '₹' : '$';
 
     // Calculate total spending
     const totalSpending = expenses.reduce((total, item) => total + item.cost, 0);
@@ -26,7 +28,7 @@ const Budget = () => {
 
     return (
         <div className='alert alert-secondary'>
-            <span>Budget: £</span>
+            <span> Budget: {currencySymbol} </span>
             <input
                 type="number"
                 value={budget}
